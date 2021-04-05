@@ -1,13 +1,11 @@
-import json from './parser';
-import read from './reader';
+import GameSavingLoader from './gameSavingLoader';
 
-export default class GameSavingLoader {
-  static async load() {
-    try {
-      const response = await read();
-      return json(response);
-    } catch (err) {
-      return err;
-    }
+(async () => {
+  try {
+    // eslint-disable-next-line no-console
+    console.log(await GameSavingLoader.load());
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
   }
-}
+})();
